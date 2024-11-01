@@ -34,14 +34,14 @@ func main() {
 	} else if n%2 == 0 {
 		isPrime = false
 	} else {
-		j := 2
+		j := 3
 		for j <= int(math.Sqrt(float64(n))) {
 			if n%j == 0 {
 				isPrime = false
 				break // performance up
 			}
 			fmt.Printf("%d ", j) // Check j loop
-			j++
+			j += 2
 		}
 	}
 
