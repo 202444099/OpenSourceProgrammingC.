@@ -29,6 +29,10 @@ func main() {
 
 	if n <= 1 {
 		isPrime = false
+	} else if n == 2 {
+		isPrime = true
+	} else if n%2 == 0 {
+		isPrime = false
 	} else {
 		j := 2
 		for j <= int(math.Sqrt(float64(n))) {
@@ -36,8 +40,8 @@ func main() {
 				isPrime = false
 				break // performance up
 			}
-			j++
 			fmt.Printf("%d ", j) // Check j loop
+			j++
 		}
 	}
 
