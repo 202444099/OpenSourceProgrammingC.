@@ -9,6 +9,21 @@ import (
 	"strings"
 )
 
+func getInteger() int {
+	in := bufio.NewReader(os.Stdin)
+	a, err := in.ReadString('\n')
+
+	if err != nil {
+		log.Fatal(err)
+	}
+	a = strings.TrimSpace(a)
+	n, _ := strconv.Atoi(a)
+	if err != nil {
+		log.Fatal(err)
+	}
+	return n
+}
+
 func isPrime(n int) bool {
 	if n <= 1 {
 		return false
@@ -22,7 +37,7 @@ func isPrime(n int) bool {
 			if n%j == 0 {
 				return false
 			}
-			fmt.Printf("%d ", j)
+			//fmt.Printf("%d ", j)
 			j += 2
 		}
 	}
@@ -30,34 +45,13 @@ func isPrime(n int) bool {
 }
 
 func main() {
-	fmt.Print("Input starting number : ")
-	in := bufio.NewReader(os.Stdin)
-	a, err := in.ReadString('\n')
-
-	if err != nil {
-		log.Fatal(err)
-	}
-	a = strings.TrimSpace(a)
-	n1, _ := strconv.Atoi(a)
-	if err != nil {
-		log.Fatal(err)
-	}
-
+	fmt.Print("Input start number : ")
+	n1 := getInteger()
 	fmt.Print("Input end number : ")
-	b, err := in.ReadString('\n')
-
-	if err != nil {
-		log.Fatal(err)
-	}
-	b = strings.TrimSpace(b)
-	n2, _ := strconv.Atoi(b)
-	if err != nil {
-		log.Fatal(err)
-	}
-
+	n2 := getInteger()
 	for j := n1; j <= n2; j++ {
 		if isPrime(j) {
-			fmt.Printf("%d", j)
+			fmt.Printf("%d ", j)
 		}
 	}
 
